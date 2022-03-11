@@ -1,0 +1,543 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Documentación API \n Prueba técnica para la vacante de desarrollador backend - laravel en [#opperweb](https://opperweb.com)",
+    "version": "1.0.0",
+    "title": "API OpperWeb - Prueba técnica",
+    "contact": {
+      "email": "duvan.caballero@hotmail.com"
+    }
+  },
+  "host": "localhost:8000/api",
+  "tags": [
+    {
+      "name": "post",
+      "description": "Configuración de las publicaciones"
+    },
+    {
+      "name": "category",
+      "description": "Configuración de las categorías"
+    },
+    {
+      "name": "comment",
+      "description": "Configuración de los comentarios"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/post/list": {
+      "get": {
+        "tags": [
+          "post"
+        ],
+        "summary": "Consulta las publicaciones registradas",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    },
+    "/post/show/{id}": {
+      "get": {
+        "tags": [
+          "post"
+        ],
+        "summary": "Consulta las publicaciones registradas por código",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Código de la publicación",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    },
+    "/post/create": {
+      "post": {
+        "tags": [
+          "post"
+        ],
+        "summary": "Crear publicación",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Título",
+            "required": true,
+            "type": "string",
+            "maxLength": 150
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "description": "Contenido",
+            "required": true,
+            "type": "string",
+            "maxLength": 65000
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Código de la categoría",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    },
+    "/post/update": {
+      "put": {
+        "tags": [
+          "post"
+        ],
+        "summary": "Actualizar publicación",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Código de la publicación",
+            "required": true,
+            "type": "integer",
+            "maxLength": 150
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Título",
+            "required": true,
+            "type": "string",
+            "maxLength": 150
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "description": "Contenido",
+            "required": true,
+            "type": "string",
+            "maxLength": 65000
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Código de la categoría",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    },
+    "/post/delete/{id}": {
+      "delete": {
+        "tags": [
+          "post"
+        ],
+        "summary": "Eliminar una publicación por código",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Código de la publicación",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    },
+    "/category/list": {
+      "get": {
+        "tags": [
+          "category"
+        ],
+        "summary": "Consulta las categoría registradas",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    },
+    "/category/show/{id}": {
+      "get": {
+        "tags": [
+          "category"
+        ],
+        "summary": "Consulta las categoría registradas por código",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Código de la publicación",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    },
+    "/category/create": {
+      "post": {
+        "tags": [
+          "category"
+        ],
+        "summary": "Crear categoría",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nombre",
+            "required": true,
+            "type": "string",
+            "maxLength": 150
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    },
+    "/category/update": {
+      "put": {
+        "tags": [
+          "category"
+        ],
+        "summary": "Actualizar categoría",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Código de la categoría",
+            "required": true,
+            "type": "integer",
+            "maxLength": 10
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nombre",
+            "required": true,
+            "type": "string",
+            "maxLength": 150
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    },
+    "/category/delete/{id}": {
+      "delete": {
+        "tags": [
+          "category"
+        ],
+        "summary": "Eliminar una categoría por código",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Código de la categoría",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    },
+    "/comment/list": {
+      "get": {
+        "tags": [
+          "comment"
+        ],
+        "summary": "Consulta los comentarios registradas",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    },
+    "/comment/show/{id}": {
+      "get": {
+        "tags": [
+          "comment"
+        ],
+        "summary": "Consulta los comentarios registradas por código",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Código de la publicación",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    },
+    "/comment/create": {
+      "post": {
+        "tags": [
+          "comment"
+        ],
+        "summary": "Crear comentarios",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "content",
+            "in": "query",
+            "description": "Contenido",
+            "required": true,
+            "type": "string",
+            "maxLength": 500
+          },
+          {
+            "name": "post",
+            "in": "query",
+            "description": "Código de la publicación",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    },
+    "/comment/update": {
+      "put": {
+        "tags": [
+          "comment"
+        ],
+        "summary": "Actualizar comentario",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Código del comentario",
+            "required": true,
+            "type": "integer",
+            "maxLength": 150
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "description": "Contenido",
+            "required": true,
+            "type": "string",
+            "maxLength": 500
+          },
+          {
+            "name": "post",
+            "in": "query",
+            "description": "Código de la publicación",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    },
+    "/comment/delete/{id}": {
+      "delete": {
+        "tags": [
+          "comment"
+        ],
+        "summary": "Eliminar comentario por código",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Código de la categoría",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Indica que el servidor no puede o no procesará la petición debido a algo que es percibido como un error"
+          },
+          "422": {
+            "description": "El envío de campos no válidos dará como resultado una respuesta de entidad no procesable"
+          }
+        }
+      }
+    }
+  }
+}
