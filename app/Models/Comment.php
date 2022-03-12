@@ -16,7 +16,9 @@ class Comment extends Model
      */
     protected $fillable = [
         'id',
-        'content'
+        'content',
+        'created_at',
+        'updated_at',
     ];
 
     /**
@@ -26,8 +28,16 @@ class Comment extends Model
      */
     protected $hidden = [
         'post_id',
-        'created_at',
-        'updated_at',
+    ];
+
+    /**
+     * The attributes that should be format.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at'     => 'date:Y-M-d H:i:s A',
+        'updated_at'     => 'date:Y-M-d H:i:s A',
     ];
 
     /**

@@ -17,16 +17,18 @@ class Category extends Model
     protected $fillable = [
         'id',
         'name',
+        'created_at',
+        'updated_at',
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     * The attributes that should be format.
      *
      * @var array
      */
-    protected $hidden = [
-        'created_at',
-        'updated_at',
+    protected $casts = [
+        'created_at'     => 'date:Y-M-d H:i:s A',
+        'updated_at'     => 'date:Y-M-d H:i:s A',
     ];
 
     /**

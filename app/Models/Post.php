@@ -17,7 +17,9 @@ class Post extends Model
     protected $fillable = [
         'id',
         'title',
-        'content'
+        'content',
+        'created_at',
+        'updated_at',
     ];
 
     /**
@@ -27,8 +29,16 @@ class Post extends Model
      */
     protected $hidden = [
         'category_id',
-        'created_at',
-        'updated_at',
+    ];
+
+    /**
+     * The attributes that should be format.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at'     => 'date:Y-M-d H:i:s A',
+        'updated_at'     => 'date:Y-M-d H:i:s A',
     ];
 
     /**
